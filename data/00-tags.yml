@@ -2,6 +2,13 @@
 apiVersion: infrahub.app/v1
 kind: Object
 spec:
+  kind: CoreStandardGroup
+  data:
+    - name: TagColors
+---
+apiVersion: infrahub.app/v1
+kind: Object
+spec:
   kind: BuiltinTag
   data:
     - name: "color-red"
@@ -10,3 +17,5 @@ spec:
       description: The green tag
     - name: "blue"
       description: The blue tag
+      member_of_groups:
+        - TagColors

@@ -31,3 +31,7 @@ queries:
 
 schemas:
   - schemas/dcim.yml
+
+objects:
+  - data/00-tags.yml
+  - data/05-dcim.yml

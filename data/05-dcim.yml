@@ -1,0 +1,25 @@
+---
+apiVersion: infrahub.app/v1
+kind: Object
+spec:
+  kind: CoreStandardGroup
+  data:
+    - name: DeviceGroup
+---
+apiVersion: infrahub.app/v1
+kind: Object
+spec:
+  kind: NetworkDevice
+  data:
+    - name: switch1
+      description: This is device switch1
+      member_of_groups:
+        - DeviceGroup
+    - name: switch2
+      description: This is device switch2
+      member_of_groups:
+        - DeviceGroup
+    - name: switch3
+      description: This is device switch3
+      member_of_groups:
+        - DeviceGroup
