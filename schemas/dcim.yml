@@ -6,25 +6,11 @@ generics:
     attributes:
       - name: name
         kind: Text
-        label: Name
       - name: description
-        state: absent
         kind: Text
         optional: true
-        label: Description
-      - name: mtu
-        kind: Number
-        label: MTU
-        optional: false
-        default_value: 1500
-      - name: enabled
-        label: Enabled
-        kind: Boolean
-        optional: false
-        default_value: false
     relationships:
       - name: device
-        label: Device
         cardinality: one
         peer: NetworkDevice
         kind: Parent
@@ -32,36 +18,26 @@ generics:
 nodes:
   - name: Device
     namespace: Network
-    human_friendly_id: ['hostname__value']
+    human_friendly_id: ["hostname__value"]
     attributes:
       - name: hostname
         kind: Text
-        label: Hostname
         unique: true
-      - name: device_type
-        label: Device Type
+      - name: model
         kind: Text
-        id: 17bcf8a7-9c03-4a6a-3295-c51345cb1c33
     relationships:
       - name: interfaces
-        label: Interfaces
         cardinality: many
         peer: NetworkInterface
         kind: Component
   - name: PhysicalInterface
     namespace: Network
-    uniqueness_constraints:
-      - ["device", "name__value"]
     inherit_from:
       - NetworkInterface
     attributes:
       - name: speed
-        label: Speed (bps)
         kind: Number
-        default_value: 1000000000
   - name: LogicalInterface
     namespace: Network
-    uniqueness_constraints:
-      - ["device", "name__value"]
     inherit_from:
       - NetworkInterface
