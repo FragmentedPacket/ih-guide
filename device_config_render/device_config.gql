@@ -1,7 +1,9 @@
-query TagsQuery($tag_name: String!) {
-  BuiltinTag(name__value: $tag_name) {
+query DeviceQuery($name: String!) {
+  NetworkDevice(name__value: $name) {
     edges {
       node {
+        __typename
+        id
         name {
           value
         }

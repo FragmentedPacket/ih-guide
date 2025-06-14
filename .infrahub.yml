@@ -1,21 +1,33 @@
 # yaml-language-server: $schema=https://schema.infrahub.app/python-sdk/repository-config/latest.json
 ---
+artifact_definitions:
+  - name: "device_configuration"
+    artifact_name: "Device configuration file"
+    parameters:
+      name: "name__value"
+    content_type: "text/plain"
+    targets: "DeviceGroup"
+    transformation: "device_config_transform"
+
 check_definitions:
   - name: "check_color_tags_name"
     class_name: "ColorTagsCheck"
     file_path: "checks/tags_check/tags_check.py"
     targets: "ColorTags"
     parameters:
-      name: "name__value"
+      tag_name: "name__value"
 
-# python_transforms:
-#   - name: device_config_transform
-#     class_name: DeviceConfigTransform
-#     convert_query_response: true
-#     file_path: "device_config_render/device_config.py"
+python_transforms:
+  - name: device_config_transform
+    class_name: DeviceConfigTransform
+    convert_query_response: true
+    file_path: "device_config_render/device_config.py"
 
 queries:
-  # - name: device_config_query
-  #   file_path: "device_config_render/device_config.gql"
+  - name: device_config_query
+    file_path: "device_config_render/device_config.gql"
   - name: tags_check
     file_path: "checks/tags_check/tags_check.gql"
+
+schemas:
+  - schemas/dcim.yml
