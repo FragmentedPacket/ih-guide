@@ -8,14 +8,14 @@ check_definitions:
     parameters:
       filter: "name__value"
 
-python_transforms:
-  - name: device_config_transform
-    class_name: DeviceConfigTransform
-    convert_query_response: true
-    file_path: "device_config_render/device_config.py"
+# python_transforms:
+#   - name: device_config_transform
+#     class_name: DeviceConfigTransform
+#     convert_query_response: true
+#     file_path: "device_config_render/device_config.py"
 
 queries:
-  - name: device_config_query
-    file_path: "device_config_render/device_config.gql"
+  # - name: device_config_query
+  #   file_path: "device_config_render/device_config.gql"
   - name: tags_check
     file_path: "checks/tags_check/tags_check.gql"
