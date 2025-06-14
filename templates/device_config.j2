@@ -1,0 +1,9 @@
+{% if data.NetworkDevice.edges and data.NetworkDevice.edges is iterable %}
+{% for device in data["NetworkDevice"]["edges"] %}
+{% set device_name = device.node.name.value %}
+{% set device_description = device.node.description.value %}
+hostname {{ device_name }}
+   description "{{ device_description }}"
+end
+{% endfor %}
+{% endif %}

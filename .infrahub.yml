@@ -17,8 +17,14 @@ check_definitions:
     parameters:
       tag_name: "name__value"
 
+jinja2_transforms:
+  - name: device_config_transform # Unique name for your transform
+    description: "device config transform" # (optional)
+    query: "device_config_query" # Name or ID of the GraphQLQuery
+    template_path: "templates/device_config.j2"
+
 python_transforms:
-  - name: device_config_transform
+  - name: device_config_json
     class_name: DeviceConfigTransform
     convert_query_response: true
     file_path: "device_config_render/device_config.py"
