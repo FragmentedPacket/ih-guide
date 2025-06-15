@@ -8,6 +8,13 @@ artifact_definitions:
     content_type: "text/plain"
     targets: "DeviceGroup"
     transformation: "device_config_transform"
+  - name: "device_configuration_json"
+    artifact_name: "Device configuration JSON"
+    parameters:
+      name: "name__value"
+    content_type: "application/json"
+    targets: "DeviceGroup"
+    transformation: "device_config_json"
 
 check_definitions:
   - name: "check_color_tags_name"
